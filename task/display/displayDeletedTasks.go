@@ -5,13 +5,13 @@ import (
 	"gopracticeproject/resources"
 )
 
-func DisplayPendingTasks() {
+func DisplayDeletedTasks() {
 	exampleTasks := resources.ExampleTasks
-	fmt.Println("Here are your pending tasks:")
-	pendingTaskFound := false
+	fmt.Println("Here are your deleted tasks:")
+	foundDeletedTasks := false
 	for _, task := range exampleTasks {
-		if task.Status == "Pending" {
-			pendingTaskFound = true
+		if task.Status == "Deleted" {
+			foundDeletedTasks = true
 			fmt.Printf("ID: %d\n", task.ID)
 			fmt.Printf("Title: %s\n", task.Title)
 			fmt.Printf("Description: %s\n", task.Description)
@@ -21,7 +21,7 @@ func DisplayPendingTasks() {
 		}
 	}
 
-	if !pendingTaskFound {
-		fmt.Println("No pending tasks found")
+	if !foundDeletedTasks {
+		fmt.Println("No deleted tasks found.")
 	}
 }
