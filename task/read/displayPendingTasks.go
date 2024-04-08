@@ -1,17 +1,17 @@
-package display
+package read
 
 import (
 	"fmt"
 	"gopracticeproject/resources"
 )
 
-func DisplayCompletedTasks() {
+func DisplayPendingTasks() {
 	exampleTasks := resources.ExampleTasks
-	fmt.Println("Here are your completed tasks:")
-	completedTaskFound := false
+	fmt.Println("Here are your pending tasks:")
+	pendingTaskFound := false
 	for _, task := range exampleTasks {
-		if task.Status == "Completed" {
-			completedTaskFound = true
+		if task.Status == "Pending" {
+			pendingTaskFound = true
 			fmt.Printf("ID: %d\n", task.ID)
 			fmt.Printf("Title: %s\n", task.Title)
 			fmt.Printf("Description: %s\n", task.Description)
@@ -21,7 +21,7 @@ func DisplayCompletedTasks() {
 		}
 	}
 
-	if !completedTaskFound {
-		fmt.Println("No completed tasks found")
+	if !pendingTaskFound {
+		fmt.Println("No pending tasks found")
 	}
 }

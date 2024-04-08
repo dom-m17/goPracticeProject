@@ -39,4 +39,11 @@ var ExampleTasks = []Task{
 		Deadline:    time.Date(2024, time.April, 6, 23, 59, 59, 0, time.UTC),
 		Status:      "Completed",
 	},
+	{
+		ID:          5,
+		Title:       "Go shopping",
+		Description: "Weekly grocery shopping",
+		Deadline:    time.Date(2024, time.April, 7, 23, 59, 59, 0, time.UTC),
+		Status:      "Deleted",
+	},
 }

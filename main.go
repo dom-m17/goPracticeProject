@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"gopracticeproject/task/display"
 	"gopracticeproject/task/input"
+	"gopracticeproject/task/read"
 	"os"
 )
 
@@ -20,20 +20,22 @@ func main() {
 			fmt.Println("Exiting the task manager...")
 			os.Exit(0)
 		case "menu":
-			display.DisplayOptions()
+			read.DisplayOptions()
 		case "1":
-			display.DisplayAllTasks()
+			read.DisplayAllTasks()
 		case "2":
-			display.DisplayPendingTasks()
+			read.DisplayPendingTasks()
 		case "3":
-			display.DisplayCompletedTasks()
+			read.DisplayCompletedTasks()
 		case "4":
-			display.DisplayDeletedTasks()
+			read.DisplayDeletedTasks()
 		case "5":
 			fmt.Println("This feature is not yet completed")
 		case "6":
 			fmt.Println("This feature is not yet completed")
 		case "7":
+			fmt.Println("This feature is not yet completed")
+		case "8":
 			fmt.Println("This feature is not yet completed")
 		default:
 			fmt.Println("Invalid input. Please try again.")

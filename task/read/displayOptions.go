@@ -1,4 +1,4 @@
-package display
+package read
 
 import "fmt"
 
@@ -10,5 +10,6 @@ func DisplayOptions() {
 	fmt.Println("Type 5 to add new task")
 	fmt.Println("Type 6 to amend task")
 	fmt.Println("Type 7 to complete task")
+	fmt.Println("Type 8 to delete task")
 	fmt.Println("Type q to quit")
 }
