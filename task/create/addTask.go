@@ -17,19 +17,19 @@ func AddTask() {
 	fmt.Println("Enter the deadline for your new task.")
 	fmt.Println("(Must be in the form DD-MM-YYYY.")
 	taskDeadlineDate = getDate()
-	// Append new task to list of pending tasks
-	// Display task
 
 	fmt.Println(taskTitle, taskDescription, taskDeadlineDate)
 
 	exampleTasks := resources.ExampleTasks
-	exampleTasks = append(exampleTasks, resources.Task{
+	newTask := resources.Task{
 		ID:          10, // Placeholder value, needs to be incremented from the highest value in the existing list.
 		Title:       taskTitle,
 		Description: taskDescription,
 		Deadline:    taskDeadlineDate,
 		Status:      "Pending",
-	}) // This is not updating the slice in exampleTasks.go
+	}
+
+	exampleTasks = append(exampleTasks, newTask) // This is not updating the slice in exampleTasks.go
 
 	fmt.Println(exampleTasks)
 }
