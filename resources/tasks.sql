@@ -1,0 +1,38 @@
+CREATE TABLE IF NOT EXISTS `tasks` (
+  `id` SERIAL PRIMARY KEY,
+  `title` VARCHAR(50) NOT NULL,
+  `desciption` VARCHAR(50) DEFAULT NULL,
+  'deadline' DATE DEFAULT NULL,
+  `status` ENUM('pending', 'completed', 'deleted') DEFAULT 'pending'
+)
+
+INSERT INTO `tasks` (`title`, `description`, `deadline`, `status`) VALUES
+('Complete Portfolio Site', 'Finish up portfolio site ready for tutor to mark.', '2024-05-10', 'pending'),
+('Prepare for Job Interview', 'Research the company, practice interview questions, and update resume.', '2024-05-15', 'pending'),
+('Write Research Paper', 'Draft and finalize research paper on topic XYZ.', '2024-05-20', 'completed'),
+('Read Chapter 5 of Book', 'Read and take notes on Chapter 5 of textbook.', '2024-05-25', 'pending'),
+('Exercise', 'Go for a 30-minute run at the park.', '2024-05-30', 'pending'),
+('Grocery Shopping', NULL, '2024-06-05', 'pending'),
+('Pay Bills', NULL, '2024-06-10', 'completed'),
+('Attend Team Meeting', 'Participate in weekly team meeting and provide updates.', '2024-06-15', 'pending'),
+('Call Mom', 'Check in with Mom and catch up on family news.', '2024-06-20', 'pending'),
+('Research Vacation Destinations', 'Research potential vacation spots and plan itinerary.', '2024-06-25', 'deleted'),
+('Clean House', NULL, '2024-06-30', 'pending'),
+('Study for Exam', 'Review study materials and complete practice questions.', '2024-07-05', 'pending'),
+('Schedule Dentist Appointment', 'Call dentist office and book an appointment.', '2024-07-10', 'completed'),
+('Update Software', 'Download and install software updates for computer and phone.', '2024-07-15', 'pending'),
+('Review Monthly Budget', 'Review expenses and income for the month.', '2024-07-20', 'pending'),
+('Write Thank-You Cards', 'Write and mail thank-you cards for recent gifts.', '2024-07-25', 'pending'),
+('Plan Weekend Getaway', 'Research activities and accommodations for weekend trip.', '2024-07-30', 'completed'),
+('Take Dog for Vet Checkup', 'Schedule and take dog for annual checkup at vet clinic.', '2024-08-05', 'pending'),
+('Organize Closet', NULL, '2024-08-10', 'pending'),
+('Practice Guitar', 'Spend 30 minutes practicing guitar chords and songs.', '2024-08-15', 'pending'),
+('Call Friend', 'Catch up with a friend over the phone.', '2024-08-20', 'pending'),
+('Volunteer at Food Bank', 'Spend Saturday morning volunteering at local food bank.', '2024-08-25', 'completed'),
+('Cook Dinner', NULL, '2024-08-30', 'pending'),
+('Attend Yoga Class', 'Attend yoga class at the gym.', '2024-09-05', 'pending'),
+('Buy Birthday Gift', 'Purchase a birthday gift for a friend.', '2024-09-10', 'pending'),
+('Start Reading New Book', 'Begin reading a new book recommended by a friend.', '2024-09-15', 'pending'),
+('Plan Home Renovation', 'Research home renovation ideas and create a budget.', '2024-09-20', 'completed'),
+('Write Blog Post', 'Draft and publish a new blog post.', '2024-09-25', 'pending'),
+('Take Car for Oil Change', 'Schedule and take car for routine oil change at the mechanic.', '2024-09-30', 'pending');
