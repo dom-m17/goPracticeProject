@@ -1,9 +1,12 @@
 package create
 
 import (
+	"context"
 	"fmt"
-	"gopracticeproject/resources"
+	"os"
 	"time"
+
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 func AddTask() {
@@ -15,30 +18,32 @@ func AddTask() {
 	fmt.Println("Enter a description for your new task.")
 	fmt.Scanln(&taskDescription)
 	fmt.Println("Enter the deadline for your new task.")
-	fmt.Println("(Must be in the form DD-MM-YYYY.")
+	fmt.Println("(Must be in the form YYYY-MM-DD.")
 	taskDeadlineDate = getDate()
 
 	fmt.Println(taskTitle, taskDescription, taskDeadlineDate)
 
-	exampleTasks := resources.ExampleTasks
-	newTask := resources.Task{
-		ID:          10, // Placeholder value, needs to be incremented from the highest value in the existing list.
-		Title:       taskTitle,
-		Description: taskDescription,
-		Deadline:    taskDeadlineDate,
-		Status:      "Pending",
+	dbpool, err := pgxpool.New(context.Background(), os.Getenv("DATABASE_URL"))
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to create connection pool: %v\n", err)
+		os.Exit(1)
+	}
+	defer dbpool.Close()
+
+	_, err = dbpool.Exec(context.Background(), "INSERT INTO tasks (title, description, deadline) VALUES ($1, $2, $3)", taskTitle, taskDescription, taskDeadlineDate)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to insert task: %v\n", err)
+		os.Exit(1)
 	}
 
-	exampleTasks = append(exampleTasks, newTask) // This is not updating the slice in exampleTasks.go
-
-	fmt.Println(exampleTasks)
+	fmt.Println("Task added successfully!")
 }
 
 func getDate() time.Time {
 	var deadlineInput string
 	fmt.Scanln(&deadlineInput)
 
-	deadlineDate, err := time.Parse("02-01-2006", deadlineInput)
+	deadlineDate, err := time.Parse("2006-01-02", deadlineInput)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return time.Time{}

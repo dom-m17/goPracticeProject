@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"gopracticeproject/task/create"
 	"gopracticeproject/task/input"
 	"gopracticeproject/task/read"
 	"os"
@@ -31,7 +30,9 @@ func main() {
 		case "4":
 			read.DisplayDeletedTasks()
 		case "5":
-			create.AddTask()
+			fmt.Println("This feature is not yet completed")
+			// create.AddTask()
+			// This function needs a complete rework
 		case "6":
 			fmt.Println("This feature is not yet completed")
 		case "7":
